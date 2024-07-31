@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import 'remixicon/fonts/remixicon.css';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+axios.defaults.headers.common[
+    'Authorization'
+] = `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -18,7 +18,7 @@ const Header = () => {
     };
 
     return (
-        <header className=' fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75'>
+        <header className=' fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75 z-40'>
             <div className=' container mx-auto px-6 flex items-center h-full'>
                 <Link to={'/'}>
                     <img src={logo} alt='logo' width={120} />
@@ -26,7 +26,7 @@ const Header = () => {
                 <nav className='hidden lg:flex items-center ml-8 gap-4'>
                     {navigation.map((nav, index) => {
                         return (
-                            <div>
+                            <div key={nav.label}>
                                 <NavLink
                                     key={nav.label}
                                     to={nav.href}

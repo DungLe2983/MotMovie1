@@ -1,23 +1,37 @@
 import React from 'react';
 import Banner from '../components/Banner';
 import { useSelector } from 'react-redux';
-import Card from '../components/Card';
+import HorizontalScrollCard from '../components/HorizontalScrollCard';
+import useFetch from '../hooks/useFetch';
 
 const Home = () => {
     const trendingMoviesData = useSelector(
         (state) => state.movieData.bannerData
     );
+    const { data: nowPlayingData } = useFetch('/movie/now_playing');
+    const { data: topRatedData } = useFetch('/movie/top_rated');
+    const { data: popularTvShowData } = useFetch('/tv/popular');
+
     return (
         <div>
             <Banner />
-            <div className=' container mx-auto px-6'>
-              <h2>Treding Movies</h2>
-              {trendingMoviesData.map((data)=>{
-                return(
-                  <Card key={data.id} data={data}/>
-                )
-              })}
-            </div>
+            <HorizontalScrollCard
+                data={trendingMoviesData}
+                heading={'Treding Movies'}
+                trending={true}
+            />
+            <HorizontalScrollCard
+                data={nowPlayingData}
+                heading={'Now Playing Movies'}
+            />
+            <HorizontalScrollCard
+                data={topRatedData}
+                heading={'Top Rated Movies'}
+            />
+            <HorizontalScrollCard
+                data={popularTvShowData}
+                heading={'Popular TV Shows'}
+            />
         </div>
     );
 };

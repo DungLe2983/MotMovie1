@@ -35,7 +35,7 @@ const Banner = () => {
                 {bannerData.map((data, index) => {
                     return (
                         <div
-                            key={data.id}
+                            key={data.id + "BannerHome" + index}
                             className='min-w-full min-h-[450px] lg:min-h-full overflow-hidden relative group transition-all'
                             style={{
                                 transform: `translateX(-${

@@ -27,6 +27,7 @@ const HorizontalScrollCard = ({ data = [], heading, trending, media_type }) => {
                                 data={data}
                                 index={index + 1}
                                 trending={trending}
+                                media_type={media_type}
                             />
                         );
                     })}

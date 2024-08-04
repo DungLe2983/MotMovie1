@@ -19,18 +19,22 @@ const Home = () => {
                 data={trendingMoviesData}
                 heading={'Treding Movies'}
                 trending={true}
+                media_type={'movie'}
             />
             <HorizontalScrollCard
                 data={nowPlayingData}
                 heading={'Now Playing Movies'}
+                media_type={'movie'}
             />
             <HorizontalScrollCard
                 data={topRatedData}
                 heading={'Top Rated Movies'}
+                media_type={'movie'}
             />
             <HorizontalScrollCard
                 data={popularTvShowData}
                 heading={'Popular TV Shows'}
+                media_type={'tv'}
             />
         </div>
     );

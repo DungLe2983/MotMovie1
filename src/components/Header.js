@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { navigation } from '../constants/navigation';
 
 const Header = () => {
-    const [searchInput, setSearchInput] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const removeSpace = location?.search?.slice(3)?.split('%20')?.join(' ');
+    const [searchInput, setSearchInput] = useState(removeSpace);
 
     useEffect(() => {
         if (searchInput) {

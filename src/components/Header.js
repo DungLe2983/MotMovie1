@@ -58,9 +58,9 @@ const Header = () => {
                             onChange={(e) => setSearchInput(e.target.value)}
                             value={searchInput}
                         />
-                        <button>
+                        <Link to={'/search'}>
                             <i className='ri-search-line text-xl'></i>
-                        </button>
+                        </Link>
                     </form>
                     <i className='ri-account-circle-fill text-3xl overflow-hidden cursor-pointer active:text-2xl transition-all'></i>
                 </div>

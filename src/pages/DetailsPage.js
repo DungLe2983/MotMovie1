@@ -29,9 +29,11 @@ const DetailsPage = () => {
         setPlayVideo(true);
     };
 
-    console.log('actor data ===', actorData);
-
     const duration = (data?.runtime / 60)?.toFixed(1)?.split('.');
+    console.log('Data ====', data);
+    console.log("Duration ====", duration);
+
+
     const writer = actorData?.crew
         ?.filter((el) => el?.job === 'Writer')
         ?.map((el) => el?.name)
@@ -78,9 +80,13 @@ const DetailsPage = () => {
                         <span className='hidden md:block'>|</span>
                         <p>View : {Number(data?.vote_count)}</p>
                         <span className='hidden md:block'>|</span>
-                        <p>
-                            Duration : {duration[0]}h {duration[1]}m
-                        </p>
+                        {data?.runtime ? (
+                            <p>
+                                Duration : {duration[0]}h {duration[1]}m
+                            </p>
+                        ) : (
+                            <p>Duration : 0</p>
+                        )}
                     </div>
 
                     <Divider />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     const bannerData = useSelector((state) => state.movieData.bannerData);
@@ -35,7 +36,7 @@ const Banner = () => {
                 {bannerData.map((data, index) => {
                     return (
                         <div
-                            key={data.id + "BannerHome" + index}
+                            key={data.id + 'BannerHome' + index}
                             className='min-w-full min-h-[450px] lg:min-h-full overflow-hidden relative group transition-all'
                             style={{
                                 transform: `translateX(-${
@@ -83,12 +84,18 @@ const Banner = () => {
                                             {Number(data.popularity).toFixed(0)}
                                         </p>
                                     </div>
-                                    <button
-                                        onClick={handleNext}
-                                        className='px-4 py-2 text-black hover:text-white font-bold rounded mt-4 bg-white hover:bg-gradient-to-l hover:scale-105 duration-200 from-red-700 to-orange-500 shadow-md transition-all'
+                                    <Link
+                                        to={
+                                            '/' +
+                                            data?.media_type +
+                                            '/' +
+                                            data.id
+                                        }
                                     >
-                                        Play Now
-                                    </button>
+                                        <button className=' bg-white px-6 py-2 text-black  hover:text-white font-bold rounded mt-4  hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md transition-all hover:scale-105'>
+                                            Play Now
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,8 @@ import useFetchDetails from '../hooks/useFetchDetails';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
 import Divider from '../components/Divider';
-import HorizontalScollCard from '../components/HorizontalScrollCard'
+import HorizontalScollCard from '../components/HorizontalScrollCard';
+import VideoPlay from '../components/VideoPlay';
 
 const DetailsPage = () => {
     const params = useParams();
@@ -22,6 +23,11 @@ const DetailsPage = () => {
     );
     const [playVideo, setPlayVideo] = useState(false);
     const [playVideoId, setPlayVideoId] = useState('');
+
+    const handlePlayVideo = (data) => {
+        setPlayVideoId(data);
+        setPlayVideo(true);
+    };
 
     console.log('actor data ===', actorData);
 
@@ -51,7 +57,10 @@ const DetailsPage = () => {
                         className='h-80 w-60 object-cover rounded'
                         alt='Img'
                     />
-                    <button className='mt-1 w-full py-2 px-4 text-center bg-white text-black hover:text-white rounded font-bold text-lg hover:bg-gradient-to-l from-red-700 to-orange-500 hover:scale-105 transition-all'>
+                    <button
+                        onClick={() => handlePlayVideo(data)}
+                        className='mt-1 w-full py-2 px-4 text-center bg-white text-black hover:text-white rounded font-bold text-lg hover:bg-gradient-to-l from-red-700 to-orange-500 hover:scale-105 transition-all'
+                    >
                         Play Now
                     </button>
                 </div>
@@ -152,6 +161,13 @@ const DetailsPage = () => {
                     media_type={params?.explore}
                 />
             </div>
+            {playVideo && (
+                <VideoPlay
+                    data={playVideoId}
+                    close={() => setPlayVideo(false)}
+                    media_type={params?.explore}
+                />
+            )}
         </div>
     );
 };

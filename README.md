@@ -1,4 +1,4 @@
-# MotMovie
+# MOIVEO
 
 Your ultimate movie destination. Discover, watch, and engage with the best movies and a vibrant community of movie enthusiasts. Lights, camera, action!
 
@@ -31,7 +31,7 @@ To install and run the project locally, follow these steps:
 
 ## User Guide
 
-You can simply click this [link](https://mot-movie.vercel.app/) to get started.
+You can simply click this [link](https://moiveo-one.vercel.app/) to get started.
 
 ## User Interface
 
